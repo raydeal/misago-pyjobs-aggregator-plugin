@@ -14,9 +14,12 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
+    "coveralls",
     "pytest>=8.0",
+    "pytest-cov",
     "pytest-django>=4.8",
     "ruff",
+
 ]
 
 [tool.setuptools.packages.find]

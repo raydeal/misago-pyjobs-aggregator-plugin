@@ -50,6 +50,6 @@ jobs:
           MISAGO_PLUGINS: plugins
         run: |
           python manage.py makemigrations --check
-          pytest --cov=misago-pyjobs-aggregator-plugin
+          pytest --cov=misago_pyjobs_aggregator
       - name: Publish to coveralls.io
         uses: coverallsapp/github-action@v2
