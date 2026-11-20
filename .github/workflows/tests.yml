@@ -37,8 +37,8 @@ jobs:
           pip install -e .[test]
       - name: Linters
         run: |
-          ruff check misago_pyjobs_aggregator
-          ruff format misago_pyjobs_aggregator --check
+          ruff check misago_pyjobs_aggregator_plugin
+          ruff format misago_pyjobs_aggregator_plugin --check
       - name: Pytest
         env:
           DJANGO_SETTINGS_MODULE: misago_pyjobs_aggregator_plugin.tests.settings
