@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "misago-pyjobs-aggregator-plugin"
+version = "0.1.0"
+description = "Misago plugin that imports matching job advertisements."
+requires-python = ">=3.12"
+dependencies = [
+    "Django~=5.2",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0",
+    "pytest-django>=4.8",
+]
+
+[tool.setuptools.packages.find]
+include = ["misago_pyjobs_aggregator*"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "misago_pyjobs_aggregator.tests.settings"
+python_files = ["test_*.py", "*_test.py"]
+addopts = ["--strict-markers", "--strict-config"]
