@@ -41,7 +41,7 @@ jobs:
           ruff format misago_pyjobs_aggregator --check
       - name: Pytest
         env:
-          DJANGO_SETTINGS_MODULE: misago_pyjobs_aggregator.tests.settings
+          DJANGO_SETTINGS_MODULE: misago_pyjobs_aggregator_plugin.tests.settings
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
           POSTGRES_DB: misago
           POSTGRES_USER: misago
@@ -50,6 +50,6 @@ jobs:
           MISAGO_PLUGINS: plugins
         run: |
           python manage.py makemigrations --check
-          pytest --cov=misago_pyjobs_aggregator
+          pytest --cov=misago_pyjobs_aggregator_plugin
       - name: Publish to coveralls.io
         uses: coverallsapp/github-action@v2

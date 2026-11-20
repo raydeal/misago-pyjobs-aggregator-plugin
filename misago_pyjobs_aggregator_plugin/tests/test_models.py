@@ -1,6 +1,6 @@
 import pytest
 
-from misago_pyjobs_aggregator.models import AggregatorConfig, CollectionState
+from misago_pyjobs_aggregator_plugin.models import AggregatorConfig, CollectionState
 
 
 @pytest.mark.django_db

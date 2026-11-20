@@ -3,7 +3,7 @@
 import django.core.validators
 from django.db import migrations, models
 
-import misago_pyjobs_aggregator.models
+import misago_pyjobs_aggregator_plugin.models
 
 
 class Migration(migrations.Migration):
@@ -16,8 +16,8 @@ class Migration(migrations.Migration):
             name="AggregatorConfig",
             fields=[
                 ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
-                ("keywords", models.JSONField(default=misago_pyjobs_aggregator.models.default_keywords)),
-                ("enabled_sources", models.JSONField(default=misago_pyjobs_aggregator.models.default_sources)),
+                ("keywords", models.JSONField(default=misago_pyjobs_aggregator_plugin.models.default_keywords)),
+                ("enabled_sources", models.JSONField(default=misago_pyjobs_aggregator_plugin.models.default_sources)),
                 ("target_category_id", models.PositiveIntegerField(blank=True, null=True)),
                 ("bot_user_id", models.PositiveIntegerField(blank=True, null=True)),
                 ("solid_campaign", models.CharField(default="python-forum-pl", max_length=64)),

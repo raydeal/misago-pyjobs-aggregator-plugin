@@ -1,7 +1,7 @@
 import pytest
 
-from misago_pyjobs_aggregator import utils
-from misago_pyjobs_aggregator.models import ImportedJob
+from misago_pyjobs_aggregator_plugin import utils
+from misago_pyjobs_aggregator_plugin.models import ImportedJob
 
 
 @pytest.mark.django_db

@@ -58,7 +58,7 @@ Configure the singleton `Jobs aggregator configuration` record in admin:
 Run migrations after installing the plugin:
 
 ```bash
-python manage.py migrate misago_pyjobs_aggregator
+python manage.py migrate misago_pyjobs_aggregator_plugin
 python manage.py collect_jobs
 ```
 

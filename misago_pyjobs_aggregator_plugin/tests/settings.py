@@ -6,7 +6,7 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INSTALLED_APPS = [
-    "misago_pyjobs_aggregator.apps.JobsAggregatorConfig",
+    "misago_pyjobs_aggregator_plugin.apps.JobsAggregatorConfig",
 ]
 
 DATABASES = {
@@ -17,4 +17,4 @@ DATABASES = {
 }
 
 MIDDLEWARE = []
-ROOT_URLCONF = "misago_pyjobs_aggregator.tests.urls"
+ROOT_URLCONF = "misago_pyjobs_aggregator_plugin.tests.urls"

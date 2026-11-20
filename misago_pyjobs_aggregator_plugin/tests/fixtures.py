@@ -2,8 +2,8 @@ from datetime import datetime, timezone
 
 import pytest
 
-from misago_pyjobs_aggregator.domain import JobAdvertisement
-from misago_pyjobs_aggregator.models import AggregatorConfig
+from misago_pyjobs_aggregator_plugin.domain import JobAdvertisement
+from misago_pyjobs_aggregator_plugin.models import AggregatorConfig
 
 
 @pytest.fixture

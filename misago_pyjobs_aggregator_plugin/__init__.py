@@ -1,0 +1,1 @@
+default_app_config = "misago_pyjobs_aggregator_plugin.apps.JobsAggregatorConfig"

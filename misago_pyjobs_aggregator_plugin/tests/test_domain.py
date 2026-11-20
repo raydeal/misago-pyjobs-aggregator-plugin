@@ -1,4 +1,4 @@
-from misago_pyjobs_aggregator.domain import JobAdvertisement
+from misago_pyjobs_aggregator_plugin.domain import JobAdvertisement
 
 
 def test_keywords_match_title_description_and_skills(job):

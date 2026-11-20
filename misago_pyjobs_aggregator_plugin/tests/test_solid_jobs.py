@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 
-from misago_pyjobs_aggregator.sources.solid_jobs import SolidJobsSource
+from misago_pyjobs_aggregator_plugin.sources.solid_jobs import SolidJobsSource
 
 
 class FakeResponse:

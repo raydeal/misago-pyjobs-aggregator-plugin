@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "misago-pyjobs-aggregator-plugin"
@@ -22,11 +22,8 @@ test = [
 
 ]
 
-[tool.setuptools.packages.find]
-include = ["misago_pyjobs_aggregator*"]
-
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "misago_pyjobs_aggregator.tests.settings"
+DJANGO_SETTINGS_MODULE = "misago_pyjobs_aggregator_plugin.tests.settings"
 python_files = ["test_*.py", "*_test.py"]
 addopts = ["--strict-markers", "--strict-config"]
 
