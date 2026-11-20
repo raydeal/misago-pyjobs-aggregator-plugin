@@ -16,6 +16,7 @@ dependencies = [
 test = [
     "pytest>=8.0",
     "pytest-django>=4.8",
+    "ruff",
 ]
 
 [tool.setuptools.packages.find]
@@ -25,3 +26,10 @@ include = ["misago_pyjobs_aggregator*"]
 DJANGO_SETTINGS_MODULE = "misago_pyjobs_aggregator.tests.settings"
 python_files = ["test_*.py", "*_test.py"]
 addopts = ["--strict-markers", "--strict-config"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

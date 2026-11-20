@@ -34,11 +34,7 @@ class JobAdvertisement:
 
     def matches(self, keywords: list[str]) -> bool:
         haystack = self.searchable_text()
-        return any(
-            clean(keyword).casefold() in haystack
-            for keyword in keywords
-            if clean(keyword)
-        )
+        return any(clean(keyword).casefold() in haystack for keyword in keywords if clean(keyword))
 
     def hash_payload(self) -> dict[str, Any]:
         return {
@@ -54,13 +50,9 @@ class JobAdvertisement:
             "skills": sorted(clean(item) for item in self.skills),
             "benefits": sorted(clean(item) for item in self.benefits),
             "experience_level": clean(self.experience_level),
-            "published_at": self.published_at.isoformat()
-            if self.published_at
-            else None,
+            "published_at": self.published_at.isoformat() if self.published_at else None,
         }
 
     def content_hash(self) -> str:
-        encoded = json.dumps(
-            self.hash_payload(), sort_keys=True, separators=(",", ":"), default=str
-        )
+        encoded = json.dumps(self.hash_payload(), sort_keys=True, separators=(",", ":"), default=str)
         return hashlib.sha256(encoded.encode("utf-8")).hexdigest()

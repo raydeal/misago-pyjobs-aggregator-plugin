@@ -9,9 +9,7 @@ class SolidJobsSource(JobSource):
     source_id = "solid_jobs"
     endpoint = "https://solid.jobs/public-api/offers"
 
-    def __init__(
-        self, campaign: str, division: str = "IT", page_size: int = 100, session=None
-    ):
+    def __init__(self, campaign: str, division: str = "IT", page_size: int = 100, session=None):
         self.campaign = campaign
         self.division = division
         self.page_size = page_size
@@ -54,10 +52,7 @@ class SolidJobsSource(JobSource):
 
     @classmethod
     def _normalize(cls, raw: dict[str, Any]) -> JobAdvertisement:
-        skills = tuple(
-            item.get("name", "") if isinstance(item, dict) else str(item)
-            for item in raw.get("skills", [])
-        )
+        skills = tuple(item.get("name", "") if isinstance(item, dict) else str(item) for item in raw.get("skills", []))
         salary = raw.get("salary") or {}
         return JobAdvertisement(
             source_id=cls.source_id,

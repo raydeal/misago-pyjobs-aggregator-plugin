@@ -51,11 +51,7 @@ class ImportedJob(models.Model):
     last_error = models.TextField(blank=True)
 
     class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                fields=["source_id", "job_id"], name="unique_imported_source_job"
-            )
-        ]
+        constraints = [models.UniqueConstraint(fields=["source_id", "job_id"], name="unique_imported_source_job")]
         indexes = [models.Index(fields=["source_id", "job_id"])]
 
 

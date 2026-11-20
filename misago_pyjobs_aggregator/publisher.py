@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from dataclasses import asdict
-
 from .domain import JobAdvertisement
 
 
@@ -55,10 +53,7 @@ class MisagoPublisher:
 
     def add_post(self, thread_id: int, content: str) -> int:
         from misago.threads.models import Thread
-        from misago.users.models import User
 
         thread = Thread.objects.get(pk=thread_id)
-        post = thread.posts.create(
-            starter_id=self.bot_user_id, original=content, parsed=content
-        )
+        post = thread.posts.create(starter_id=self.bot_user_id, original=content, parsed=content)
         return post.pk

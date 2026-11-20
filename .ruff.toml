@@ -1,5 +1,0 @@
-# Assume Python 3.12
-target-version = "py312"
-
-[lint]
-select = ["I"]

@@ -5,9 +5,7 @@ from misago_pyjobs_aggregator.models import ImportedJob
 
 
 @pytest.mark.django_db
-def test_collect_jobs_creates_import_record(
-    monkeypatch, aggregator_config, published_job
-):
+def test_collect_jobs_creates_import_record(monkeypatch, aggregator_config, published_job):
     class FakeSource:
         def __init__(self, *args):
             pass
@@ -34,9 +32,7 @@ def test_collect_jobs_creates_import_record(
 
 
 @pytest.mark.django_db
-def test_collect_jobs_skips_unchanged_import(
-    monkeypatch, aggregator_config, published_job
-):
+def test_collect_jobs_skips_unchanged_import(monkeypatch, aggregator_config, published_job):
     class FakeSource:
         def __init__(self, *args):
             pass

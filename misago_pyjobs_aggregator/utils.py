@@ -33,9 +33,7 @@ def collect_jobs(now=None) -> dict[str, int]:
             state.last_successful_run_at - timedelta(seconds=config.overlap_seconds),
         )
 
-    source = SolidJobsSource(
-        config.solid_campaign, config.solid_division, config.solid_page_size
-    )
+    source = SolidJobsSource(config.solid_campaign, config.solid_division, config.solid_page_size)
     publisher = MisagoPublisher(config.target_category_id, config.bot_user_id)
     result = {
         "fetched": 0,
@@ -64,9 +62,7 @@ def collect_jobs(now=None) -> dict[str, int]:
         state.last_successful_run_at = now
         state.last_completed_at = now
         state.last_result = result
-        state.save(
-            update_fields=["last_successful_run_at", "last_completed_at", "last_result"]
-        )
+        state.save(update_fields=["last_successful_run_at", "last_completed_at", "last_result"])
         return result
     except Exception:
         state.last_completed_at = now
@@ -78,11 +74,7 @@ def collect_jobs(now=None) -> dict[str, int]:
 @transaction.atomic
 def _process_job(job, publisher, now, result):
     digest = job.content_hash()
-    record = (
-        ImportedJob.objects.select_for_update()
-        .filter(source_id=job.source_id, job_id=job.job_id)
-        .first()
-    )
+    record = ImportedJob.objects.select_for_update().filter(source_id=job.source_id, job_id=job.job_id).first()
     if record is None:
         thread_id = publisher.create_thread(job.title, format_job(job))
         ImportedJob.objects.create(
